@@ -470,17 +470,36 @@ MonoBehaviour:
   - rarity: 0
     fishs:
     - rarity: 0
-      fishName: 
-      value: 0
+      fishName: MiniFish
+      value: 3
     - rarity: 0
-      fishName: 
-      value: 0
+      fishName: GoFish
+      value: 4
     - rarity: 0
-      fishName: 
-      value: 0
+      fishName: HaFish
+      value: 5
+    probability: 65
+    currentProbability: 0
+  - rarity: 1
+    fishs:
+    - rarity: 0
+      fishName: GoldFish
+      value: 30
+    - rarity: 0
+      fishName: SilverFish
+      value: 60
+    probability: 35
+    currentProbability: 0
+  - rarity: 2
+    fishs:
+    - rarity: 0
+      fishName: GodFish
+      value: 1000
     probability: 0
     currentProbability: 0
   legendProbabilityIncrease: 1
+  cooldownTime: 1.5
+  lastDrawTime: -Infinity
 --- !u!1 &1526726265
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +868,7 @@ GameObject:
   - component: {fileID: 2145090384}
   - component: {fileID: 2145090383}
   - component: {fileID: 2145090382}
+  - component: {fileID: 2145090386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -967,6 +987,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2145090386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145090381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9a03aab795cc545b279126a1692360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishing: {fileID: 1132503969}
+  Money: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

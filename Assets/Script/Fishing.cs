@@ -8,6 +8,7 @@ using System.Linq;
     ///Kehan Gong
     ///2025-02-08
     ///</summary>   
+    ///所有种类的稀有度总和必须为100%
 
 public enum Rarity {Common, Rare, Legend}
 
@@ -26,16 +27,22 @@ public enum Rarity {Common, Rare, Legend}
 
 public class Fishing : MonoBehaviour
 {
+    /// <summary>
+    /// Define the rarity setting and the probability increase设置概率
+    /// </summary>
     [System.Serializable]
     public class RaritySetting
     {
     public Rarity rarity;
     public List<Fish> fishs = new List <Fish>();
     [Range(0,100)] public float probability;
+
     [HideInInspector] public float currentProbability;
     }
    [SerializeField] private List<RaritySetting> raritySettings = new List<RaritySetting>();
    [SerializeField] private float legendProbabilityIncrease = 1f; 
+   [SerializeField] private float cooldownTime = 1.5f; // 冷却时间
+   [SerializeField] private float lastDrawTime = -Mathf.Infinity; // 上次抽卡时间
 
 
    ///<summary>
@@ -51,41 +58,82 @@ public class Fishing : MonoBehaviour
         }
         //Normalize the probability
    }
+   /*
+   public void Update()
+   {
+    if (Input.GetKeyDown(KeyCode.E))
+    {
+        DrawFish();
+       
+    }
+   }
+*/   
 
     public Fish DrawFish()
     {
-        ///<summary>  
-        ///Draw probability to each fish 为每个鱼设置概率
-        ///</summary>
+    /// <summary>
+    /// Draw probability to each fish.
+    /// 为每种鱼设置概率。
+    /// </summary>
+     if (Time.time < lastDrawTime + cooldownTime)
+    {
+        Debug.Log("冷却中，请稍后再试！");
+        return null;
+    }
 
-        float total = raritySettings.Sum(r => r.currentProbability);
-        float random = Random.Range(0f, total);
-        float currentProbability = 0f;
+    // 记录本次抽卡时间
+    lastDrawTime = Time.time;
+    // Calculate the total probability of all rarities.
+    // 计算所有稀有度的总概率。
+    float total = raritySettings.Sum(r => r.currentProbability);
+    Debug.Log("total: " + total);
+    // Generate a random number between 0 and the total probability.
+    // 生成一个 0 到总概率之间的随机数。
+    float random = Random.Range(0f, total);
 
-        ///选择鱼
-        RaritySetting selectedRarity = null;
-        foreach (var setting in raritySettings)
+    // Initialize a variable to accumulate the probability.
+    // 初始化一个变量来累加概率。
+    float currentProbability = 0f;
+
+    /// Select the fish based on probability.
+    /// 根据概率选择鱼。
+    RaritySetting selectedRarity = null;
+    foreach (var setting in raritySettings)
+    {
+        // Add the current rarity's probability to the accumulator.
+        // 将当前稀有度的概率加到累加器中。
+        currentProbability += setting.probability;
+        Debug.Log("currentProbability: " + currentProbability);
+
+        // If the random number falls within the current probability range, select this rarity.
+        // 如果随机数落在当前概率范围内，选择这个稀有度。
+        if (random <= currentProbability)
         {
-            currentProbability += setting.probability;
-            if (random <= currentProbability)
-            {
-                selectedRarity = setting;
-                break;
-            }
+            selectedRarity = setting;
+            break;
         }
-        
-        Fish selectedFish = selectedRarity.fishs[Random.Range(0, selectedRarity.fishs.Count)];
+    }
 
-        if(selectedRarity.rarity != Rarity.Legend)
-        {
-            AdjustLengendProbability();
-        }
-        else
-        {
-            ResetProbabilities();
-        }
+    // Randomly select a fish from the selected rarity's fish list.
+    // 从选中的稀有度的鱼列表中随机选择一条鱼。
+    Fish selectedFish = selectedRarity.fishs[Random.Range(0, selectedRarity.fishs.Count)];
 
-        return selectedFish;
+    // If the selected fish is not legendary, adjust the legend probability.
+    // 如果选中的鱼不是传说鱼，调整传说鱼的概率。
+    if (selectedRarity.rarity != Rarity.Legend)
+    {
+        AdjustLengendProbability();
+    }
+    else
+    {
+        // If the selected fish is legendary, reset all probabilities.
+        // 如果选中的鱼是传说鱼，重置所有概率。
+        ResetProbabilities();
+    }
+
+    // Return the selected fish.
+    // 返回选中的鱼。
+    return selectedFish;
 
     }
 
