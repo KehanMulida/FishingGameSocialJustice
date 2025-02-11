@@ -5,10 +5,26 @@ using UnityEngine;
 public class FishTrigger : MonoBehaviour
 {
     public Fishing fishing;
-    public int Money;
+    //public int Money;
     private GameObject fishObject;
     public Transform player;
     public float spawnDistance = 2f;
+    
+    private int money;
+    public int Money
+    {
+        get { return money; }
+        private set
+        {
+            money = value;
+            if (coinManager != null)
+            {
+                coinManager.UpdateMoneyUI(money); // 更新 UI
+            }
+        }
+    }
+
+    public CoinManager coinManager; // 参考 CoinUIManager
 
     private void Update()
     {
@@ -17,6 +33,11 @@ public class FishTrigger : MonoBehaviour
             CompleteTask(); // 按下空格键触发抽卡
         }
     }   
+
+    private void Start()
+    {
+        Money = 0;
+    }
     
     public void CompleteTask()
     {

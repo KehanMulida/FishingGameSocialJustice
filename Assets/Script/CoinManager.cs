@@ -10,7 +10,17 @@ public class CoinManager : MonoBehaviour
     ///Kehan Gong
     ///2025-02-10
     ///</summary>
-    public TextMeshProUGUI coinText; // 金币文本
+    public TextMeshProUGUI moneyText; // 用于显示金币的 TextMeshPro 组件
+
+    // 更新 UI 中的 Money 值
+    public void UpdateMoneyUI(int money)
+    {
+        if (moneyText != null)
+        {
+            moneyText.text = "Money: " + money;
+        }
+    }
+    /*public TextMeshProUGUI coinText; // 金币文本
     private int coinCount = 0; // 当前金币数量
     public FishTrigger fishTrigger;
 
@@ -50,4 +60,5 @@ public class CoinManager : MonoBehaviour
 
         coinText.text = "Coins: " + targetValue; // 确保最终数值正确
     }
+    */
 }
