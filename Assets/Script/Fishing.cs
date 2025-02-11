@@ -18,6 +18,7 @@ public enum Rarity {Common, Rare, Legend}
         public Rarity rarity;
         public string fishName;
         public int value;
+        public GameObject fishObject;
 
         ///<summary>
         ///Define the fish name, rarity, probability, value, and price

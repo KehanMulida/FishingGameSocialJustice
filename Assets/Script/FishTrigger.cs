@@ -6,6 +6,9 @@ public class FishTrigger : MonoBehaviour
 {
     public Fishing fishing;
     public int Money;
+    private GameObject fishObject;
+    public Transform player;
+    public float spawnDistance = 2f;
 
     private void Update()
     {
@@ -23,6 +26,7 @@ public class FishTrigger : MonoBehaviour
         {
         Debug.Log("DrawFish");
         GivenValue(fish);
+        SpawnFish(fish);
         }
         else
         {
@@ -37,6 +41,21 @@ public class FishTrigger : MonoBehaviour
         string fishName = fish.fishName;
         Debug.Log("Money: " + Money);
         Debug.Log("fishName: " + fishName);
+    }
+
+    public void SpawnFish(Fish fish)
+    {
+        if (fish.fishObject == null || player == null)
+        {
+            Debug.LogWarning("Fish Prefab 或 Player 未设置！");
+            return;
+        }
+
+        // 计算生成位置（玩家附近）
+        Vector3 spawnPosition = player.position + player.forward * spawnDistance;
+
+        // 实例化卡牌的 GameObject
+        GameObject fishObjectInstance = Instantiate(fish.fishObject, spawnPosition, Quaternion.identity);
     }
 
 }
