@@ -79,4 +79,9 @@ public class FishTrigger : MonoBehaviour
         GameObject fishObjectInstance = Instantiate(fish.fishObject, spawnPosition, Quaternion.identity);
     }
 
+    public void upgrade_speed()
+    {
+        money -= 100;
+    }
+
 }

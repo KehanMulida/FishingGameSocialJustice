@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager1 : MonoBehaviour
 {
     public List<Item> inventory = new List<Item>();  // 存储物品列表
     public GameObject inventoryPanel;  // 背包 UI 面板
