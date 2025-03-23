@@ -46,10 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
         MoveBoat(moveInputX, moveInputY);
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            SwitchMovementMode();
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //     SwitchMovementMode();
+        //}
     }
 
     void MoveBoat(float moveX, float moveY)
