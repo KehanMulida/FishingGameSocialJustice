@@ -4712,7 +4712,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 17.685457, y: 8.963391}
@@ -4740,8 +4740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52205c6e0453674428f2700c3fb07c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedFishing: {fileID: 1132503969}
-  trigger: {fileID: 2145090386}
+  linkedPoolName: OriginalPool
 --- !u!1 &1137790829
 GameObject:
   m_ObjectHideFlags: 0
@@ -5189,6 +5188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1217286909}
+  - component: {fileID: 1217286910}
   m_Layer: 0
   m_Name: PoolManager
   m_TagString: Untagged
@@ -5213,6 +5213,23 @@ Transform:
   - {fileID: 1397569781}
   m_Father: {fileID: 1754296999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1217286910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217286908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b445bf7e116f242b30aab40d28aad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allPools:
+  - {fileID: 1132503969}
+  - {fileID: 1397569784}
+  switchDelay: 0.2
+  currentPool: {fileID: 0}
 --- !u!1 &1231044900
 GameObject:
   m_ObjectHideFlags: 0
@@ -6066,7 +6083,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 17.995731, y: -0.68949115}
+  m_Offset: {x: 17.995731, y: -0.5645323}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6077,7 +6094,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 28.441765, y: 6.515932}
+  m_Size: {x: 28.441765, y: 6.76585}
   m_EdgeRadius: 0
 --- !u!114 &1397569783
 MonoBehaviour:
@@ -6091,8 +6108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52205c6e0453674428f2700c3fb07c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedFishing: {fileID: 1397569784}
-  trigger: {fileID: 2145090386}
+  linkedPoolName: DarkPool
 --- !u!114 &1397569784
 MonoBehaviour:
   m_ObjectHideFlags: 0

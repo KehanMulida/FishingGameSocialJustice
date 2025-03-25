@@ -28,6 +28,7 @@ public class FishTrigger : MonoBehaviour
 
     private void Update()
     {
+        fishing = FishPoolManager.Instance.currentPool;
         if (Input.GetKeyDown(KeyCode.E))
         {
             CompleteTask(); // 按下空格键触发抽卡
