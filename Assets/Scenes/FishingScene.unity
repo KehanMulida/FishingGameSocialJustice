@@ -2223,7 +2223,7 @@ Transform:
   m_GameObject: {fileID: 958758214}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43, y: -0.71203136, z: -10.060272}
+  m_LocalPosition: {x: -0.43, y: 1.01, z: -10.060272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2318,8 +2318,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1132503968}
   - component: {fileID: 1132503969}
+  - component: {fileID: 1132503971}
+  - component: {fileID: 1132503970}
   m_Layer: 0
-  m_Name: Fishmanager
+  m_Name: OriginalPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2338,7 +2340,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1754296999}
+  m_Father: {fileID: 1217286909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1132503969
 MonoBehaviour:
@@ -2392,6 +2394,65 @@ MonoBehaviour:
   legendProbabilityIncrease: 0.2
   cooldownTime: 1.5
   lastDrawTime: -Infinity
+--- !u!61 &1132503970
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132503967}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 17.685457, y: 8.963391}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 28.372814, y: 12.307661}
+  m_EdgeRadius: 0
+--- !u!114 &1132503971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132503967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52205c6e0453674428f2700c3fb07c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linkedFishing: {fileID: 1132503969}
+  trigger: {fileID: 2145090386}
 --- !u!1 &1137790829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,6 +2586,39 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1898194509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1217286908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217286909}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217286909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217286908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1132503968}
+  - {fileID: 1397569781}
+  m_Father: {fileID: 1754296999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284664124
 GameObject:
@@ -2895,6 +2989,151 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1397569780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1397569781}
+  - component: {fileID: 1397569784}
+  - component: {fileID: 1397569783}
+  - component: {fileID: 1397569782}
+  m_Layer: 0
+  m_Name: DarkPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1397569781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397569780}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1217286909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1397569782
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397569780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 17.995731, y: -0.68949115}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 28.441765, y: 6.515932}
+  m_EdgeRadius: 0
+--- !u!114 &1397569783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397569780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52205c6e0453674428f2700c3fb07c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linkedFishing: {fileID: 1397569784}
+  trigger: {fileID: 2145090386}
+--- !u!114 &1397569784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397569780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236e8349e6f0e414b9ca25ccadfb1e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raritySettings:
+  - rarity: 0
+    fishs:
+    - rarity: 0
+      fishName: MiniFish
+      value: 3
+      fishObject: {fileID: 8411305727642836344, guid: 887673adfbf32b341b1be8412d0dfe25, type: 3}
+    - rarity: 0
+      fishName: GoFish
+      value: 4
+      fishObject: {fileID: 2095458364302861001, guid: fc7154b96bba6a94d83a946b8569a64d, type: 3}
+    - rarity: 0
+      fishName: HaFish
+      value: 5
+      fishObject: {fileID: 1618447154392025210, guid: 9bfa8392f22a7f54ab116783d908a795, type: 3}
+    probability: 65
+    currentProbability: 0
+  - rarity: 1
+    fishs:
+    - rarity: 0
+      fishName: GoldFish
+      value: 30
+      fishObject: {fileID: 6918557641053406805, guid: 06fe4f97a2199a546b5e4e2715a4c4e4, type: 3}
+    - rarity: 0
+      fishName: SilverFish
+      value: 60
+      fishObject: {fileID: 9013658970895815167, guid: d00ba98f93c7b68469400da0929ac0d2, type: 3}
+    probability: 35
+    currentProbability: 0
+  - rarity: 2
+    fishs:
+    - rarity: 0
+      fishName: GodFish
+      value: 1000
+      fishObject: {fileID: 2589786849718739414, guid: a4848306f7a470a4a96b2ba0be5c892b, type: 3}
+    probability: 0
+    currentProbability: 0
+  legendProbabilityIncrease: 0.2
+  cooldownTime: 1.5
+  lastDrawTime: -Infinity
 --- !u!1 &1416336103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,7 +3759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1132503968}
+  - {fileID: 1217286909}
   - {fileID: 600090292}
   - {fileID: 127879998}
   m_Father: {fileID: 0}
@@ -4591,7 +4830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436599e7efae5f144ada435f227d695d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 10
   rotationSpeed: 100
   speedMultiplier: 1
   animator: {fileID: 0}
@@ -4684,7 +4923,7 @@ Transform:
   m_GameObject: {fileID: 2145090381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43, y: -0.71203136, z: -0.0602721}
+  m_LocalPosition: {x: -0.43, y: 1.01, z: -0.0602721}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
