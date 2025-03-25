@@ -14,6 +14,8 @@ public class boatSpeed_Upgrade : MonoBehaviour
     public GameObject store_UI;
     public Button speed_upgrade01;
     private bool canUpgrade;
+    public TextMeshProUGUI upgrade_fail_text;
+    
    
    
     void Start()
@@ -22,6 +24,8 @@ public class boatSpeed_Upgrade : MonoBehaviour
         movement = FindObjectOfType<PlayerMovement>();
         speed_upgrade01.onClick.AddListener(onbuttonClick); // 定义监听事件
         canUpgrade = false;
+        upgrade_fail_text.text = "Not enough coins";
+        upgrade_fail_text.gameObject.SetActive(false);
       
     }
 
@@ -43,6 +47,7 @@ public class boatSpeed_Upgrade : MonoBehaviour
        else
         {
             Debug.Log("not enough coins");
+            upgrade_fail_text.gameObject.SetActive(true);
         }
 
       
