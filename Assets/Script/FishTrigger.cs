@@ -82,7 +82,7 @@ public class FishTrigger : MonoBehaviour
 
     public void upgrade_speed()
     {
-        money -= 100;
+        Money -= 100;
     }
 
 }
