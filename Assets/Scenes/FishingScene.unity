@@ -3250,6 +3250,7 @@ GameObject:
   - component: {fileID: 822196578}
   - component: {fileID: 822196580}
   - component: {fileID: 822196577}
+  - component: {fileID: 822196581}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3318,7 +3319,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 8192895727075264218, guid: 60167ee66440c9945b3c7f17bb25569d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3379,8 +3380,8 @@ BoxCollider2D:
   m_Offset: {x: 0.02267766, y: -0.045354843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.4818182, y: -0.1025641}
+    oldSize: {x: 3.4375, y: 2.4375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3389,6 +3390,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6598382, y: 0.4103861}
   m_EdgeRadius: 0
+--- !u!95 &822196581
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822196576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 3347418779927198976, guid: 60167ee66440c9945b3c7f17bb25569d, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &834147024
 GameObject:
   m_ObjectHideFlags: 0
@@ -6125,13 +6147,13 @@ MonoBehaviour:
   - rarity: 0
     fishs:
     - rarity: 0
-      fishName: MiniFish
+      fishName: Jellyfish
       value: 3
-      fishObject: {fileID: 8411305727642836344, guid: 887673adfbf32b341b1be8412d0dfe25, type: 3}
+      fishObject: {fileID: 3487673821239277297, guid: f3a9e29cf236324479f0a27064005cc6, type: 3}
     - rarity: 0
-      fishName: GoFish
+      fishName: Longfish
       value: 4
-      fishObject: {fileID: 2095458364302861001, guid: fc7154b96bba6a94d83a946b8569a64d, type: 3}
+      fishObject: {fileID: 4540100742943465824, guid: 2dc54ac04a8ac1142b0bf8c6323f48f0, type: 3}
     - rarity: 0
       fishName: HaFish
       value: 5
@@ -6141,21 +6163,25 @@ MonoBehaviour:
   - rarity: 1
     fishs:
     - rarity: 0
-      fishName: GoldFish
+      fishName: DrugDealerfish
       value: 30
-      fishObject: {fileID: 6918557641053406805, guid: 06fe4f97a2199a546b5e4e2715a4c4e4, type: 3}
+      fishObject: {fileID: 7345779654123652546, guid: 6fca9f9e8f1df5447806303f6de2f5c1, type: 3}
     - rarity: 0
-      fishName: SilverFish
+      fishName: blackfish
       value: 60
-      fishObject: {fileID: 9013658970895815167, guid: d00ba98f93c7b68469400da0929ac0d2, type: 3}
+      fishObject: {fileID: 2394132215586225454, guid: 8d3c76d95a6c7fe41a901af40511351a, type: 3}
     probability: 35
     currentProbability: 0
   - rarity: 2
     fishs:
     - rarity: 0
-      fishName: GodFish
+      fishName: fishman
       value: 1000
-      fishObject: {fileID: 2589786849718739414, guid: a4848306f7a470a4a96b2ba0be5c892b, type: 3}
+      fishObject: {fileID: 8771805200262459551, guid: 91a9a3ea6cd766446a1b84f4b019dc8c, type: 3}
+    - rarity: 0
+      fishName: darkfish
+      value: 1000
+      fishObject: {fileID: 7470686872713237716, guid: fc67d87d2ee50bc42af7b064b2a79197, type: 3}
     probability: 0
     currentProbability: 0
   legendProbabilityIncrease: 0.2
@@ -8988,6 +9014,7 @@ GameObject:
   - component: {fileID: 2002654033}
   - component: {fileID: 2002654032}
   - component: {fileID: 2002654031}
+  - component: {fileID: 2002654035}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -9050,8 +9077,8 @@ BoxCollider2D:
   m_Offset: {x: 0.02267766, y: -0.045354843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.4818182, y: -0.1025641}
+    oldSize: {x: 3.4375, y: 2.4375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -9101,7 +9128,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 8192895727075264218, guid: 60167ee66440c9945b3c7f17bb25569d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9127,6 +9154,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2002654035
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002654030}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 3347418779927198976, guid: 60167ee66440c9945b3c7f17bb25569d, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2056918470
 GameObject:
   m_ObjectHideFlags: 0
