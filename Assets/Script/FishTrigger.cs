@@ -31,7 +31,7 @@ public class FishTrigger : MonoBehaviour
         fishing = FishPoolManager.Instance.currentPool;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            CompleteTask(); // 按下空格键触发抽卡
+            CompleteTask(); // 按下E键触发抽卡
         }
     }   
 
@@ -63,6 +63,16 @@ public class FishTrigger : MonoBehaviour
         string fishName = fish.fishName;
         Debug.Log("Money: " + Money);
         Debug.Log("fishName: " + fishName);
+
+        // ==> 加入背包
+        if (Inventory.instance != null)
+        {
+            Inventory.instance.AddFish(fishName);
+        }
+        else
+        {
+            Debug.LogWarning("Inventory 实例不存在！");
+        }
     }
 
     public void SpawnFish(Fish fish)
