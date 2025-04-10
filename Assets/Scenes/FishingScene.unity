@@ -1773,11 +1773,11 @@ MonoBehaviour:
   fishIconPairs:
   - fishName: blackfish
     fishSprite: {fileID: 21300000, guid: 1f358e417cdccc249adc2fcbdea529a1, type: 3}
-  - fishName: Drakfish
+  - fishName: darkfish
     fishSprite: {fileID: 21300000, guid: 9ccfec8301a5b84458fd7f290fa222d1, type: 3}
   - fishName: Fishman
     fishSprite: {fileID: 21300000, guid: 2994224286f8c4c40aff2a395f65b55f, type: 3}
-  - fishName: Drugdealerfish
+  - fishName: DrugDealerfish
     fishSprite: {fileID: 21300000, guid: 12032d16dc34c6241b29527e5a4a10f0, type: 3}
   - fishName: GodFish
     fishSprite: {fileID: 21300000, guid: 800eb8e939131f348993146503c98ebc, type: 3}
@@ -1785,13 +1785,13 @@ MonoBehaviour:
     fishSprite: {fileID: 21300000, guid: e6d796ba88538564ea2ce6ced28f22cd, type: 3}
   - fishName: GoldFish
     fishSprite: {fileID: 21300000, guid: 289642a41bd8177458fb4b078a1ea252, type: 3}
-  - fishName: Hal Fish
+  - fishName: HaFish
     fishSprite: {fileID: 21300000, guid: d2c9b1f53c50f8e45b82d0dc46976409, type: 3}
   - fishName: Jellyfish
     fishSprite: {fileID: 21300000, guid: be38850be0b9cad4896a0edf92c41ee4, type: 3}
   - fishName: Longfish
     fishSprite: {fileID: 21300000, guid: 59a3505c51c98f348bfbc3981a1b6236, type: 3}
-  - fishName: MIiniFish
+  - fishName: MiniFish
     fishSprite: {fileID: 21300000, guid: ff8447e6ab1ea0746a81c735daad5f19, type: 3}
   - fishName: SilverFish
     fishSprite: {fileID: 21300000, guid: 946d4f7dcf3ea08489368313a46306ec, type: 3}
