@@ -28,6 +28,8 @@ public class NPCAI : MonoBehaviour
     private float previousSpeed = 0f;       // 之前速度
     public CinemachineImpulseSource impulseSource; // Impulse Source 组件
     private bool isStopped = false;       // 是否停止
+    private SpriteRenderer spriteRenderer; // 翻转精灵
+    private Animator animator;
 
     void Start()
     {
@@ -35,8 +37,19 @@ public class NPCAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // 初始化巡逻点
         GetNewPatrolPoint();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
+    // <summary>
+    /// 自动根据朝向翻转
+    /// </summary>
+    void FlipTowards(Vector2 target)
+    {
+        float direction = target.x - transform.position.x;
 
+        if (Mathf.Abs(direction) > 0.01f)
+            spriteRenderer.flipX = direction > 0;
+    }
     void Update()
     {
         if (isChasing)
@@ -60,6 +73,11 @@ public class NPCAI : MonoBehaviour
             Patrol();
             CheckForPlayer();
         }
+        float currentSpeed = isChasing ? chaseSpeed : patrolSpeed;
+
+        // 翻转角色朝向
+        Vector2 target = isChasing ? player.position : patrolPoint;
+        FlipTowards(target);
     }
     private void OnTriggerEnter2D(Collider2D other)
         {
@@ -97,6 +115,7 @@ public class NPCAI : MonoBehaviour
             patrolTimer += Time.deltaTime;
             if (patrolTimer >= patrolInterval)
             {
+                
                 GetNewPatrolPoint();
                 patrolTimer = 0f;
             }
@@ -133,6 +152,7 @@ public class NPCAI : MonoBehaviour
         // 如果玩家离开检测范围，停止追逐
         if (Vector2.Distance(transform.position, player.position) > detectionRadius)
         {
+           
             isChasing = false;
             GetNewPatrolPoint(); // 返回巡逻状态
         }
