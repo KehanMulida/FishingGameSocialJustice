@@ -10,6 +10,7 @@ public class CoinManager : MonoBehaviour
     ///Kehan Gong
     ///2025-02-10
     ///</summary>
+    /*
     public TextMeshProUGUI moneyText; // 用于显示金币的 TextMeshPro 组件
 
     // 更新 UI 中的 Money 值
@@ -20,26 +21,33 @@ public class CoinManager : MonoBehaviour
             moneyText.text = "Money: " + money;
         }
     }
-    /*public TextMeshProUGUI coinText; // 金币文本
-    private int coinCount = 0; // 当前金币数量
+   */
+    public TextMeshProUGUI coinText;
+    private int coinCount = 0;
     public FishTrigger fishTrigger;
+    public float animationDuration = 0.5f;
+    public float scrollSpeed = 10f;
+
+    private Vector3 originalPosition; // 👈 缓存起始位置
 
     void Start()
     {
-        UpdateCoinUI(); // 初始化 UI
+        // 缓存初始位置
+        originalPosition = coinText.transform.localPosition;
+        UpdateCoinUI();
     }
 
-    // 增加金币的方法
     public void AddCoins(int amount)
     {
-        amount = fishTrigger.Money-coinCount;
+        amount = fishTrigger.Money - coinCount;
         coinCount += amount;
-        UpdateCoinUI(); // 更新 UI，并执行动画
+        UpdateCoinUI();
     }
 
-    // 更新金币 UI，并带有平滑增长动画
     void UpdateCoinUI()
     {
+        // 确保位置复位
+        coinText.transform.localPosition = originalPosition;
         StartCoroutine(AnimateCoinUI());
     }
 
@@ -47,18 +55,34 @@ public class CoinManager : MonoBehaviour
     {
         int startValue = int.Parse(coinText.text.Replace("Coins: ", ""));
         int targetValue = coinCount;
-        float duration = 0.3f; // 动画持续时间
         float elapsed = 0f;
 
-        while (elapsed < duration)
+        Vector3 startPos = originalPosition;
+        Vector3 targetPos = startPos + Vector3.up * 50f;
+
+        while (elapsed < animationDuration)
         {
             elapsed += Time.deltaTime;
-            int displayValue = Mathf.RoundToInt(Mathf.Lerp(startValue, targetValue, elapsed / duration));
+            float progress = elapsed / animationDuration;
+
+            int displayValue = Mathf.RoundToInt(Mathf.Lerp(startValue, targetValue, progress));
             coinText.text = "Coins: " + displayValue;
+
+            if (progress < 0.5f)
+            {
+                coinText.transform.localPosition = Vector3.Lerp(targetPos, startPos, progress * 2f);
+            }
+            else
+            {
+                coinText.transform.localPosition = startPos;
+            }
+
             yield return null;
         }
 
-        coinText.text = "Coins: " + targetValue; // 确保最终数值正确
+        // 最终强制位置归位
+        coinText.text = "Coins: " + targetValue;
+        coinText.transform.localPosition = startPos;
     }
-    */
+    
 }

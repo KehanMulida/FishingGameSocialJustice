@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FishTrigger : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class FishTrigger : MonoBehaviour
             money = value;
             if (coinManager != null)
             {
-                coinManager.UpdateMoneyUI(money); // 更新 UI
+                coinManager.AddCoins(money); // 更新 UI
             }
         }
     }
@@ -92,7 +93,25 @@ public class FishTrigger : MonoBehaviour
 
     public void upgrade_speed()
     {
-        Money -= 100;
+        if(Money >= 100)
+        {
+            Money -= 100;
+        }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
     }
-
+    public void getCapturedbyNPC()
+    {
+        Money -= 100;
+        if(Money < 0)
+        {
+            Invoke("RestartGame", 1f);
+        }
+    }
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

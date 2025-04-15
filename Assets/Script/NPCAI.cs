@@ -30,9 +30,11 @@ public class NPCAI : MonoBehaviour
     private bool isStopped = false;       // 是否停止
     private SpriteRenderer spriteRenderer; // 翻转精灵
     private Animator animator;
+    private FishTrigger boat; // get the boat script
 
     void Start()
     {
+        boat = FindObjectOfType<FishTrigger>();
         // 查找玩家对象
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // 初始化巡逻点
@@ -90,6 +92,7 @@ public class NPCAI : MonoBehaviour
                 {
                     impulseSource.GenerateImpulse();
                 }
+                boat.getCapturedbyNPC();
 
                 // 停止追击
                 if (!isStopped)
