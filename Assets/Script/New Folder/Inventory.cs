@@ -8,6 +8,9 @@ public class FishIconPair
     public string fishName;
     // 对应的鱼图标
     public Sprite fishSprite;
+
+    [TextArea]
+    public string backgroundInfo;
 }
 
 public class Inventory : MonoBehaviour
@@ -22,7 +25,7 @@ public class Inventory : MonoBehaviour
     public InventorySlot[] slots;
 
     // 用来记录背包鱼类信息: key = 鱼名称, value = 数量
-    private Dictionary<string, int> fishData = new Dictionary<string, int>();
+    public Dictionary<string, int> fishData = new Dictionary<string, int>();
 
     [Header("鱼图标映射 (在 Inspector 中添加鱼的映射)")]
     // 你可以在此列表中配置所有鱼的名称及图标（直接拖入对应 Sprite）
